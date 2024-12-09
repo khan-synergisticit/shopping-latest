@@ -1,0 +1,39 @@
+services:
+  mysqldb:
+    image: "mysql:8.0"
+    restart: always
+    networks:
+      - ecommerce
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    environment:
+      MYSQL_DATABASE: ecommerce_db
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - mysql-data:/var/lib/mysql
+  shopping:
+    build:
+      context: .
+    ports:
+      - "8090:8090"
+    networks:
+      - ecommerce
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3306/ecommerce_db
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+    depends_on:
+      - mysqldb
+    volumes:
+      - .:/usr/app
+      - ./.m2:/root/.m2
+
+
+volumes:
+  mysql-data:
+networks:
+  ecommerce:
+    name: ecommerce
+    external: true
