@@ -12,6 +12,7 @@
 	<groupId>com.ecom</groupId>
 	<artifactId>Shopping_Cart</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>Shopping_Cart</name>
 	<description>Online Shopping Cart Spring boot mvc Project</description>
 	<properties>
@@ -77,6 +78,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<finalName>shopping</finalName>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

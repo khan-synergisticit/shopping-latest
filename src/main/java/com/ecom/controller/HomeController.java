@@ -263,7 +263,7 @@ public class HomeController {
 	
 	@PostMapping("/authenticate")
 	public String authenticate(@RequestParam String username, @RequestParam String password, Model model, RedirectAttributes redirectAttrs) {
-		String authServiceUrl = "http://localhost:8093/signin";
+		String authServiceUrl = "http://auth:8093/signin";
 		
 		RestTemplate restTemplate = new RestTemplate();
 		try {
