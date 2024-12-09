@@ -25,7 +25,7 @@ COPY --from=build /usr/app/target/shopping.war $CATALINA_HOME/webapps.dist/
 COPY ./config/web.xml $CATALINA_HOME/webapps.dist/manager/WEB-INF
 COPY ./config/tomcat-users.xml $CATALINA_HOME/conf
 COPY ./config/server.xml $CATALINA_HOME/conf
-RUN cp -r $CATALINA_HOME/webapps.dist/* $CATALINA_HOME/webappsdocker
+RUN cp -r $CATALINA_HOME/webapps.dist/* $CATALINA_HOME/webapps
 
 EXPOSE 8080
 #ENTRYPOINT ["nohup", "java","-jar","Shopping_Cart-0.0.1-SNAPSHOT.jar", "&"]
