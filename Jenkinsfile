@@ -12,7 +12,7 @@ pipeline {
                 remote.password = 'donkey';
                 remote.allowAnyHosts = true;
 
-                sshCommand remote: remote, command: "./deploy-shopping.sh"
+                sshCommand remote: remote, command: "./shopping-cart-spring-boot-main/deploy-shopping.sh"
                 //sshCommand remote: remote, command: "ls"
                 // sshCommand remote: remote, command: "mvn clean install"
                 }
